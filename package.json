@@ -1,0 +1,16 @@
+{
+  "name": "clonetabnews",
+  "version": "1.0.0",
+  "description": "Este projeto é para fixação dos conceitos básicos de desenvolvimento de software",
+  "main": "index.js",
+  "scripts": {
+    "Dev": "next dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
