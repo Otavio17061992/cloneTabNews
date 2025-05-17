@@ -1,7 +1,7 @@
 function Home() {
   return (
     <dev>
-      <h1>Eu consigo fazer facilmente esse codigo ser alterado</h1>
+      <h1>O futuro pertence a Deus, e eu serei a espada do anjo Gabriel</h1>
     </dev>
   );
 }
