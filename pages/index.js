@@ -8,4 +8,8 @@ function Home() {
   );
 }
 
+function Console() {
+  console.log("Testee do prettier");
+}
+
 export default Home;
