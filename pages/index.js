@@ -1,4 +1,5 @@
-function Home() {
+function Home()
+{
   return (
     <dev>
       <h1>O futuro pertence a Deus, e eu serei a espada do anjo Gabriel</h1>
@@ -8,8 +9,10 @@ function Home() {
   );
 }
 
-function Console() {
-  console.log("Testee do prettier");
+function Console()
+{
+  console.log("Hello World");
+  return null;
 }
 
 export default Home;
