@@ -1,4 +1,4 @@
-import database from "Infra/database.js";
+import database from "../../../../Infra/database";
 import { version } from "react";
 
 async function status(request, response) {
