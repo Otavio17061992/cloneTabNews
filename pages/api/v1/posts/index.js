@@ -5,8 +5,24 @@ export default async function handler(req, res) {
     if (req.method === "GET") {
         try {
             const page = parseInt(req.query.page || "1");
-            const limit = parseInt(req.query.limit || "12");
-            const data = await PostModel.getAll({ page, limit });
+            const limit = parseInt(req.query.limit || "50");
+            const { status, admin_secret } = req.query;
+
+            const SERVER_SECRET = process.env.ADMIN_SECRET || "12345";
+            let includeUnapproved = false;
+
+            if (status === "pending") {
+                if (admin_secret !== SERVER_SECRET) {
+                    return res.status(401).json({ error: "Unauthorized: Invalid admin secret" });
+                }
+                includeUnapproved = true;
+            }
+
+            const data = await PostModel.getAll({ page, limit, includeUnapproved });
+            if (status === "pending") {
+                data.posts = data.posts.filter(p => !p.approved);
+            }
+
             return res.status(200).json(data);
         } catch (err) {
             console.error(err);

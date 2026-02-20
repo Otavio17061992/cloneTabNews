@@ -106,8 +106,9 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
             </h1>
 
             <p className={styles.heroSub}>
-              Especialista em <strong>.NET C# e SQL Server</strong> && tentando dominar o <strong>Next.js com PostgreSQL</strong>, automatizando o mundo
-              antes que a IA decida fazer isso por mim. Aberto a freelas e colabs.
+              Especialista em <strong>.NET C# e SQL Server</strong> && <strong>Next.js com PostgreSQL</strong>. 
+              Arquitetando soluções escaláveis e transformando complexidade em software de alto impacto. 
+              Aberto a oportunidades e colaborações.
             </p>
 
             <div className={styles.heroActions}>

@@ -33,8 +33,7 @@ export default function CommentSection({ postId, initialComments = [] }) {
             });
 
             if (!res.ok) throw new Error("Erro ao enviar comentário");
-            const newComment = await res.json();
-            setComments((prev) => [...prev, newComment]);
+            await res.json();
             setForm({ author_name: "", author_email: "", content: "" });
             setSuccess(true);
         } catch (err) {
@@ -82,7 +81,7 @@ export default function CommentSection({ postId, initialComments = [] }) {
 
                 {success && (
                     <div className={styles.successMsg}>
-                        ✅ Comentário enviado com sucesso!
+                        ✅ Seu comentário foi enviado e está aguardando aprovação!
                     </div>
                 )}
                 {error && (

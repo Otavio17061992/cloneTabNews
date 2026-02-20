@@ -3,7 +3,7 @@ import { Client } from "pg";
 async function query(queryObject) {
   const client = new Client({
     connectionString: process.env.DATABASE_URL || `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_HOST}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB}`,
-    ssl: process.env.NODE_ENV === "development" ? false : true,
+    ssl: process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test" ? false : true,
   });
   try {
     await client.connect();

@@ -4,13 +4,21 @@ import { rateLimit } from "../../../../Infra/rateLimiter.js";
 export default async function handler(req, res) {
     // GET /api/v1/comments?post_id=123
     if (req.method === "GET") {
-        const { post_id } = req.query;
-
-        if (!post_id) {
-            return res.status(400).json({ error: "post_id é obrigatório" });
-        }
+        const { post_id, status, admin_secret } = req.query;
 
         try {
+            if (status === "pending") {
+                const SERVER_SECRET = process.env.ADMIN_SECRET || "12345";
+                if (admin_secret !== SERVER_SECRET) {
+                    return res.status(401).json({ error: "Unauthorized: Invalid admin secret" });
+                }
+                const pendingComments = await CommentModel.getAllPending();
+                return res.status(200).json({ comments: pendingComments });
+            }
+
+            if (!post_id) {
+                return res.status(400).json({ error: "post_id é obrigatório" });
+            }
             const comments = await CommentModel.getByPostId(post_id);
             return res.status(200).json({ comments });
         } catch (err) {

@@ -12,6 +12,7 @@ export default function CommunityPage({ posts = [] }) {
     const [showForm, setShowForm] = useState(false);
     const [newPost, setNewPost] = useState({ title: "", content: "", category: "Frontend", author_name: "" });
     const [loading, setLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState("");
     const [localPosts, setLocalPosts] = useState(posts);
 
     const filtered = localPosts.filter((p) => {
@@ -33,13 +34,21 @@ export default function CommunityPage({ posts = [] }) {
                 body: JSON.stringify(newPost),
             });
             if (res.ok) {
-                const created = await res.json();
-                setLocalPosts((prev) => [created.post, ...prev]);
+                // não adiciona localmente pois aguarda aprovação
+                setSuccessMsg("Publicação enviada com sucesso! Aguardando aprovação do administrador.");
                 setNewPost({ title: "", content: "", category: "Frontend", author_name: "" });
-                setShowForm(false);
+                // fecha o form depois de 3 segundos
+                setTimeout(() => {
+                    setShowForm(false);
+                    setSuccessMsg("");
+                }, 3000);
+            } else {
+                const errorData = await res.json().catch(() => ({}));
+                alert(errorData.error || "Erro ao publicar post. Verifique sua conexão ou tente novamente mais tarde.");
             }
         } catch (err) {
             console.error(err);
+            alert("Erro de conexão ao tentar publicar o post.");
         } finally {
             setLoading(false);
         }
@@ -67,31 +76,37 @@ export default function CommunityPage({ posts = [] }) {
                     {showForm && (
                         <div className={`card ${styles.newPostForm}`}>
                             <h3>Criar novo post</h3>
-                            <form onSubmit={handleSubmit} className={styles.form}>
-                                <div className={styles.formRow}>
-                                    <div className="form-group">
-                                        <label className="form-label">Título</label>
-                                        <input className="form-input" type="text" placeholder="Título do post..." value={newPost.title} onChange={e => setNewPost({ ...newPost, title: e.target.value })} required />
+                            {successMsg ? (
+                                <div style={{ color: "var(--success)", padding: "1rem", background: "rgba(16, 185, 129, 0.1)", borderRadius: "var(--radius)", marginBottom: "1rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                                    ✅ {successMsg}
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className={styles.form}>
+                                    <div className={styles.formRow}>
+                                        <div className="form-group">
+                                            <label className="form-label">Título</label>
+                                            <input className="form-input" type="text" placeholder="Título do post..." value={newPost.title} onChange={e => setNewPost({ ...newPost, title: e.target.value })} required />
+                                        </div>
+                                        <div className="form-group">
+                                            <label className="form-label">Seu nome</label>
+                                            <input className="form-input" type="text" placeholder="Seu nome" value={newPost.author_name} onChange={e => setNewPost({ ...newPost, author_name: e.target.value })} required />
+                                        </div>
                                     </div>
                                     <div className="form-group">
-                                        <label className="form-label">Seu nome</label>
-                                        <input className="form-input" type="text" placeholder="Seu nome" value={newPost.author_name} onChange={e => setNewPost({ ...newPost, author_name: e.target.value })} required />
+                                        <label className="form-label">Categoria</label>
+                                        <select className="form-input" value={newPost.category} onChange={e => setNewPost({ ...newPost, category: e.target.value })}>
+                                            {CATEGORIES.filter(c => c !== "Todos").map(c => <option key={c}>{c}</option>)}
+                                        </select>
                                     </div>
-                                </div>
-                                <div className="form-group">
-                                    <label className="form-label">Categoria</label>
-                                    <select className="form-input" value={newPost.category} onChange={e => setNewPost({ ...newPost, category: e.target.value })}>
-                                        {CATEGORIES.filter(c => c !== "Todos").map(c => <option key={c}>{c}</option>)}
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label className="form-label">Conteúdo</label>
-                                    <textarea className="form-textarea" placeholder="Escreva seu post aqui..." value={newPost.content} onChange={e => setNewPost({ ...newPost, content: e.target.value })} required style={{ minHeight: "180px" }} />
-                                </div>
-                                <button type="submit" className="btn btn-primary" disabled={loading}>
-                                    {loading ? "Publicando..." : "Publicar Post"}
-                                </button>
-                            </form>
+                                    <div className="form-group">
+                                        <label className="form-label">Conteúdo</label>
+                                        <textarea className="form-textarea" placeholder="Escreva seu post aqui..." value={newPost.content} onChange={e => setNewPost({ ...newPost, content: e.target.value })} required style={{ minHeight: "180px" }} />
+                                    </div>
+                                    <button type="submit" className="btn btn-primary" disabled={loading}>
+                                        {loading ? "Publicando..." : "Publicar Post"}
+                                    </button>
+                                </form>
+                            )}
                         </div>
                     )}
 

@@ -4,6 +4,10 @@ const WINDOW_MS = 60 * 1000; // janela de 1 minuto
 const MAX_REQUESTS = 3;       // máximo 3 comentários por minuto por IP
 
 export function rateLimit(ip) {
+    if (process.env.NODE_ENV === "test" || process.env.DISABLE_RATE_LIMIT === "true") {
+        return { allowed: true, remaining: 100 };
+    }
+
     const now = Date.now();
     const record = store.get(ip);
 
