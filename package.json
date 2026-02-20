@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run services:up && next dev",
-    "build": "npm run migration:up && next build",
+    "build": "npm run migration:up:prod && next build",
     "start": "next start",
     "services:up": "docker compose -f Infra/compose.yaml up -d",
     "services:stop": "docker compose -f Infra/compose.yaml stop",
@@ -15,7 +15,8 @@
     "test": "jest --runInBand",
     "test:watch": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate --migrations-dir Infra/migrations create",
-    "migration:up": "node-pg-migrate --migrations-dir Infra/migrations --envPath .env.development up"
+    "migration:up": "node-pg-migrate --migrations-dir Infra/migrations --envPath .env.development up",
+    "migration:up:prod": "node-pg-migrate --migrations-dir Infra/migrations up"
   },
   "author": "João Mesquita",
   "license": "ISC",
