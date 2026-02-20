@@ -352,9 +352,11 @@ var dev = new Pessoa {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   try {
-    const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+    const host = context.req.headers.host;
+    const protocol = host.includes("localhost") ? "http" : "https";
+    const base = `${protocol}://${host}`;
     const [projRes, postsRes] = await Promise.all([
       fetch(`${base}/api/v1/projects`),
       fetch(`${base}/api/v1/posts`),
