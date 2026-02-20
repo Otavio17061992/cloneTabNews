@@ -92,7 +92,7 @@ export default function ProjectsPage({ projects = [] }) {
 
 export async function getServerSideProps() {
     try {
-        const base = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+        const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
         const res = await fetch(`${base}/api/v1/projects`);
         const data = res.ok ? await res.json() : { projects: [] };
         return { props: { projects: data.projects || [], title: "Projetos", description: "Portfólio de projetos de João Mesquita" } };

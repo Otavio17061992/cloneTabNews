@@ -64,7 +64,7 @@ export default function PostPage({ post, comments = [] }) {
 
 export async function getServerSideProps({ params }) {
     try {
-        const base = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+        const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
         const [postRes, commentsRes] = await Promise.all([
             fetch(`${base}/api/v1/posts/${params.id}`),
             fetch(`${base}/api/v1/comments?post_id=${params.id}`),

@@ -81,7 +81,7 @@ export default function ProjectDetail({ project }) {
 
 export async function getServerSideProps({ params }) {
     try {
-        const base = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+        const base = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
         const res = await fetch(`${base}/api/v1/projects/${params.id}`);
         const data = res.ok ? await res.json() : null;
         return { props: { project: data?.project || null, title: data?.project?.title } };
