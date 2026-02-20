@@ -53,7 +53,7 @@ export default function ContactPage() {
                                 <div className={styles.infoIcon}><Mail size={22} /></div>
                                 <div>
                                     <h3>E-mail</h3>
-                                    <a href="mailto:joao@email.com" className={styles.infoLink}>joao@email.com</a>
+                                    <a href="mailto:[EMAIL_ADDRESS]" className={styles.infoLink}>[EMAIL_ADDRESS]</a>
                                 </div>
                             </div>
 

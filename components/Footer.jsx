@@ -13,7 +13,7 @@ export default function Footer() {
                             <span>CodaFoFo.ocx</span>
                         </Link>
                         <p className={styles.tagline}>
-                            Desenvolvendo soluções com propósito  alguns anos
+                            Desenvolvendo soluções com propósito há alguns anos.
                         </p>
                         <div className={styles.socials}>
                             <a
