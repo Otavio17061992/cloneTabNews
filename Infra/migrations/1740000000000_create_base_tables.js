@@ -111,16 +111,16 @@ exports.up = (pgm) => {
     // Seed: projetos de exemplo
     pgm.sql(`
     INSERT INTO projects (title, description, tech_stack, github_url, featured) VALUES
-    ('Dev Portfolio', 'Plataforma de portfólio e comunidade para devs e recrutadores', ARRAY['Next.js', 'PostgreSQL', 'Docker'], 'https://github.com/joaomesquita', true),
-    ('API REST Node.js', 'API RESTful com autenticação JWT e banco de dados PostgreSQL', ARRAY['Node.js', 'Express', 'PostgreSQL', 'JWT'], 'https://github.com/joaomesquita', true)
+    ('Dev Portfolio', 'Plataforma de portfólio e comunidade para devs e recrutadores', ARRAY['Next.js', 'PostgreSQL', 'Docker'], 'https://github.com/Otavio17061992', true),
+    ('API REST Node.js', 'API RESTful com autenticação JWT e banco de dados PostgreSQL', ARRAY['Node.js', 'Express', 'PostgreSQL', 'JWT'], 'https://github.com/Otavio17061992', true)
   `);
 
     // Seed: posts de exemplo
     pgm.sql(`
     INSERT INTO posts (title, content, category, author_name) VALUES
-    ('Como estruturar uma API REST com Next.js', 'Neste post vou mostrar como criar uma API REST robusta usando Next.js com PostgreSQL...', 'Backend', 'João Mesquita'),
-    ('Dicas de CSS para interfaces modernas', 'Aprenda a usar variáveis CSS, gradientes e animações para criar UIs incríveis...', 'Frontend', 'João Mesquita'),
-    ('Docker para Devs: Guia Rápido', 'Um guia prático para usar Docker no seu fluxo de desenvolvimento...', 'DevOps', 'João Mesquita')
+    ('Como estruturar uma API REST com Next.js', 'Neste post vou mostrar como criar uma API REST robusta usando Next.js com PostgreSQL...', 'Backend', 'Otávio Mesquita'),
+    ('Dicas de CSS para interfaces modernas', 'Aprenda a usar variáveis CSS, gradientes e animações para criar UIs incríveis...', 'Frontend', 'Otávio Mesquita'),
+    ('Docker para Devs: Guia Rápido', 'Um guia prático para usar Docker no seu fluxo de desenvolvimento...', 'DevOps', 'Otávio Mesquita')
   `);
 };
 
