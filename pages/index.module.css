@@ -1,0 +1,332 @@
+.hero {
+    min-height: calc(100vh - 68px);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.heroTitle {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.heroSub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 520px;
+}
+
+.heroSub strong {
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.socials {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.socialBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.socialBtn:hover {
+    color: var(--accent-light);
+    border-color: var(--border-hover);
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.heroVisual {
+    display: flex;
+    justify-content: center;
+}
+
+.codeCard {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+    animation: float 5s ease-in-out infinite;
+}
+
+.codeHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--border);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.fileName {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-left: 0.25rem;
+}
+
+.codeBody {
+    padding: 1.5rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.scrollDown {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-muted);
+    animation: float 2.5s ease-in-out infinite;
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.scrollDown:hover {
+    color: var(--accent-light);
+}
+
+/* ─── About Section ─── */
+.aboutSection {
+    background: var(--bg-secondary);
+}
+
+.experienceTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.expItem {
+    display: grid;
+    grid-template-columns: 140px 24px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding-bottom: 2.5rem;
+    position: relative;
+}
+
+.expItem:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: calc(140px + 12px + 1.5rem - 1px);
+    top: 24px;
+    width: 2px;
+    height: calc(100% - 24px);
+    background: linear-gradient(180deg, var(--accent) 0%, transparent 100%);
+    opacity: 0.3;
+}
+
+.expYear {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-light);
+    font-family: "JetBrains Mono", monospace;
+    padding-top: 0.25rem;
+    text-align: right;
+}
+
+.expDot {
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+}
+
+.expContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.expContent strong {
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.expCompany {
+    font-size: 0.85rem;
+    color: var(--accent-light);
+    font-weight: 500;
+}
+
+.expContent p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+    line-height: 1.7;
+}
+
+/* ─── Skills Section ─── */
+.skillCard {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skillIcon {
+    width: 46px;
+    height: 46px;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-light);
+}
+
+.skillTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+/* ─── Projects Section ─── */
+.emptyState {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.seeAll {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+/* ─── Posts Section ─── */
+.postsSection {
+    background: var(--bg-secondary);
+}
+
+/* ─── CTA Section ─── */
+.ctaBox {
+    background: var(--bg-card);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-lg);
+    padding: clamp(2.5rem, 5vw, 4rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-glow);
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.ctaContent h2 {
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ctaContent p {
+    max-width: 55ch;
+    font-size: 1.05rem;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .heroContent {
+        align-items: center;
+    }
+
+    .heroVisual {
+        display: none;
+    }
+
+    .expItem {
+        grid-template-columns: 100px 20px 1fr;
+        gap: 1rem;
+    }
+
+    .expYear {
+        font-size: 0.72rem;
+    }
+}
