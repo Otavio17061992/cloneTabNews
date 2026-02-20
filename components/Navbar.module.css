@@ -1,0 +1,135 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.logo svg {
+    color: var(--accent);
+}
+
+.logo:hover {
+    color: var(--accent-light);
+}
+
+.links {
+    display: flex;
+    list-style: none;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.link {
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.link:hover {
+    color: var(--text-primary);
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.active {
+    color: var(--accent-light) !important;
+    background: rgba(99, 102, 241, 0.12) !important;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menuBtn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: var(--transition);
+    align-items: center;
+    justify-content: center;
+}
+
+.menuBtn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+.mobileMenu {
+    display: none;
+    padding: 1rem clamp(1rem, 5vw, 2rem);
+    border-top: 1px solid var(--border);
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobileLink {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.mobileLink:hover {
+    color: var(--text-primary);
+    background: var(--bg-card);
+}
+
+.activeMobile {
+    color: var(--accent-light) !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+}
+
+@media (max-width: 768px) {
+
+    .links,
+    .actions {
+        display: none;
+    }
+
+    .menuBtn {
+        display: flex;
+    }
+
+    .mobileMenu {
+        display: flex;
+    }
+}

@@ -1,0 +1,129 @@
+.footer {
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding: 3rem 0 1.5rem;
+    background: var(--bg-secondary);
+}
+
+.top {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.brand {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.logo svg {
+    color: var(--accent);
+}
+
+.logo:hover {
+    color: var(--accent-light);
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.socials {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.socialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.socialLink:hover {
+    color: var(--accent-light);
+    border-color: var(--border-hover);
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.columns {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.column {
+    min-width: 120px;
+}
+
+.colTitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.column ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footerLink {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.footerLink:hover {
+    color: var(--accent-light);
+}
+
+.bottom {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.bottom p {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.heart {
+    color: var(--error);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
