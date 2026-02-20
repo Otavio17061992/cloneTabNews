@@ -1,6 +1,6 @@
 .pageHeader {
     background: var(--bg-secondary);
-    padding: 7rem 0 3rem;
+    padding: 7rem 0 3.5rem;
     text-align: center;
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -15,6 +15,8 @@
 .newPostForm h3 {
     margin-bottom: 1.25rem;
     color: var(--text-primary);
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
 }
 
 .form {
@@ -64,7 +66,7 @@
 .empty {
     text-align: center;
     padding: 3rem;
-    background: var(--bg-card);
+    background: var(--bg-secondary);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     display: flex;

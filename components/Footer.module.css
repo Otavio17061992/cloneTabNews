@@ -29,6 +29,7 @@
     color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition);
+    letter-spacing: -0.03em;
 }
 
 .logo svg {
@@ -36,11 +37,11 @@
 }
 
 .logo:hover {
-    color: var(--accent-light);
+    color: var(--accent);
 }
 
 .tagline {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--text-muted);
 }
 
@@ -63,9 +64,9 @@
 }
 
 .socialLink:hover {
-    color: var(--accent-light);
-    border-color: var(--border-hover);
-    background: rgba(99, 102, 241, 0.08);
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(0, 113, 227, 0.06);
 }
 
 .columns {
@@ -79,7 +80,7 @@
 }
 
 .colTitle {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -95,20 +96,20 @@
 }
 
 .footerLink {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--text-secondary);
     transition: var(--transition);
     text-decoration: none;
 }
 
 .footerLink:hover {
-    color: var(--accent-light);
+    color: var(--accent);
 }
 
 .bottom {
     padding-top: 1.5rem;
     border-top: 1px solid var(--border);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
     display: flex;
     align-items: center;

@@ -6,7 +6,7 @@ export default function Layout({ children, title, description }) {
     const siteTitle = title ? `${title} | João.dev` : "João.dev — Portfólio & Comunidade";
     const siteDescription =
         description ||
-        "Portfólio profissional e comunidade dev. Projetos, artigos de TI e contato com João Mesquita, desenvolvedor full-stack com 4 anos de experiência.";
+        "Portfólio profissional e comunidade dev. Projetos, artigos de TI e contato com João Mesquita, desenvolvedor full-stack.";
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import {
   Github,
@@ -12,6 +12,7 @@ import {
   Terminal,
   Layers,
   ChevronDown,
+  Instagram,
 } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
 import PostCard from "../components/PostCard";
@@ -19,15 +20,36 @@ import styles from "./index.module.css";
 
 const skills = [
   { icon: <Globe size={22} />, name: "Frontend", items: ["React", "Next.js", "TypeScript", "CSS3"] },
-  { icon: <Server size={22} />, name: "Backend", items: ["Node.js", "Express", "REST APIs", "Jest"] },
-  { icon: <Database size={22} />, name: "Banco de Dados", items: ["PostgreSQL", "MongoDB", "Redis"] },
+  { icon: <Server size={22} />, name: "Backend", items: [".NET C# MVC", "Node.js", "REST APIs", "ASP.NET"] },
+  { icon: <Database size={22} />, name: "Banco de Dados", items: ["SQL Server", "PostgreSQL", "MongoDB"] },
   { icon: <Layers size={22} />, name: "DevOps", items: ["Docker", "Git", "GitHub Actions", "Linux"] },
 ];
 
 const experiences = [
-  { year: "2024 – Atual", role: "Dev Full-Stack", company: "Projetos Freelance", desc: "Desenvolvimento de aplicações web completas para clientes, desde o backend com Node.js até o frontend com React/Next.js." },
-  { year: "2023 – 2024", role: "Dev Backend", company: "Startup Tech", desc: "APIs RESTful com Node.js e PostgreSQL, integração de serviços externos e otimização de performance." },
-  { year: "2022 – 2023", role: "Dev Junior", company: "Agência Digital", desc: "Desenvolvimento de landing pages, sistemas web com React e manutenção de bancos de dados." },
+  {
+    year: "Jan 2025 – Atual",
+    role: "Desenvolvedor de Software",
+    company: "Geosaúde Gerenciadora",
+    desc: "Desenvolvo e mantenho aplicações web com foco em performance e escalabilidade utilizando C# e Web Forms. Gestão de demandas com Azure DevOps, versionamento com Git, manipulação e otimização de dados com SQL Server.",
+  },
+  {
+    year: "Nov 2023 – Jan 2025",
+    role: "Analista de Aplicações",
+    company: "Comerc Energia",
+    desc: "Criação de aplicações com C#, Windows Forms e React Native. Análise de dados de consumo de energia, consultas SQL Server e gestão de projetos internos.",
+  },
+  {
+    year: "Jun 2022 – Fev 2024",
+    role: "Desenvolvedor de Software",
+    company: "GESTAL Gestão de Energia",
+    desc: "Criação de aplicações em C# + JS para otimizar tarefas, análise de consumo de energia elétrica, consultas SQL Server e testes na plataforma Smart Energy.",
+  },
+  {
+    year: "Ago 2020 – Dez 2022",
+    role: "Especialista em Suporte de TI",
+    company: "Serasa Experian",
+    desc: "Suporte técnico de 1ª e 2ª linha, diagnóstico e resolução de problemas complexos, manutenção de sistemas e redes, gestão de tickets e colaboração com equipes de desenvolvimento.",
+  },
 ];
 
 export default function Home({ featuredProjects = [], recentPosts = [] }) {
@@ -47,12 +69,28 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
     return () => clearInterval(interval);
   }, []);
 
+  const codeCardRef = useRef(null);
+
+  useEffect(() => {
+    const el = codeCardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add(styles.slideIn);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* ─── Hero ─── */}
       <section className={styles.hero}>
-        <div className="glow-orb glow-orb-1" />
-        <div className="glow-orb glow-orb-2" />
         <div className="container">
           <div className={styles.heroContent}>
             <span className="section-label">
@@ -61,15 +99,15 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
 
             <h1 className={styles.heroTitle}>
               Olá, sou{" "}
-              <span className="gradient-text">
+              <span style={{ color: "var(--accent)" }}>
                 {typed}
                 <span className={styles.cursor}>|</span>
               </span>
             </h1>
 
             <p className={styles.heroSub}>
-              Desenvolvedor Full-Stack com <strong>4 anos de experiência</strong>. Crio soluções digitais
-              robustas e bem projetadas — do banco de dados à interface.
+              Especialista em <strong>.NET C# e SQL Server</strong> && tentando dominar o <strong>Next.js com PostgreSQL</strong>, automatizando o mundo
+              antes que a IA decida fazer isso por mim. Aberto a freelas e colabs.
             </p>
 
             <div className={styles.heroActions}>
@@ -83,7 +121,7 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
 
             <div className={styles.socials}>
               <a
-                href="https://github.com/joaomesquita"
+                href="https://github.com/Otavio17061992"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialBtn}
@@ -92,7 +130,7 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/joaomesquita"
+                href="https://linkedin.com/in/otavio17061992"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialBtn}
@@ -100,31 +138,40 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
               >
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:joao@email.com" className={styles.socialBtn} aria-label="Email">
-                <Mail size={20} />
+              <a
+                href="https://www.instagram.com/codafofo.msx/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialBtn}
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
               </a>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
-            <div className={styles.codeCard}>
+            <div className={styles.codeCard} ref={codeCardRef}>
               <div className={styles.codeHeader}>
                 <span className={styles.dot} style={{ background: "#ef4444" }} />
                 <span className={styles.dot} style={{ background: "#f59e0b" }} />
                 <span className={styles.dot} style={{ background: "#10b981" }} />
                 <span className={styles.fileName}>joao.dev</span>
               </div>
-              <pre className={styles.codeBody}>{`const dev = {
-  name: "João Mesquita",
-  experience: "4 anos",
-  stack: [
-    "Next.js",
-    "Node.js",
-    "PostgreSQL",
-    "Docker"
-  ],
-  status: "disponível 🚀"
-};`}</pre>
+              <div className={styles.codeBody}>{`// C# 12 - Compact & Clean
+var dev = new Pessoa {
+  Name = "Otávio Mesquita",
+  Role = "Software Developer",
+  Stack = new[] {
+    ".NET 8", "C#", "SQL Server",
+    "Next.js", "PostgreSQL", "Docker"
+  },
+  Architecture = new[] {
+    "Microservices", "Event-Driven",
+    "Clean Arch", "Design Systems"
+  },
+  Status = "Automatizando o mundo..."
+};`}</div>
             </div>
           </div>
         </div>
@@ -137,26 +184,52 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
       {/* ─── Sobre mim ─── */}
       <section id="about" className={`section ${styles.aboutSection}`}>
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Quem sou eu</span>
-            <h2 className="section-title">4 anos construindo o futuro</h2>
-            <p className="section-description">
-              Apaixonado por código limpo, boas práticas e soluções que realmente funcionam.
-            </p>
-          </div>
+          <div className={styles.aboutGrid}>
+            {/* Foto */}
+            <div className={styles.aboutPhoto}>
+              <img
+                src="https://github.com/Otavio17061992.png"
+                alt="Otávio Mesquita"
+                className={styles.photoImg}
+              />
+            </div>
 
-          <div className={styles.experienceTimeline}>
-            {experiences.map((exp, i) => (
-              <div key={i} className={styles.expItem}>
-                <div className={styles.expYear}>{exp.year}</div>
-                <div className={styles.expDot} />
-                <div className={styles.expContent}>
-                  <strong>{exp.role}</strong>
-                  <span className={styles.expCompany}>{exp.company}</span>
-                  <p>{exp.desc}</p>
-                </div>
+            {/* Texto */}
+            <div className={styles.aboutText}>
+              <span className="section-label">Sobre mim</span>
+              <h2 className="section-title" style={{ textAlign: "left", marginTop: "0.5rem" }}>
+                Resolvendo problemas reais com código sólido
+              </h2>
+              <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
+                Desenvolvedor especializado no ecossistema <strong>.NET</strong> (C#, ASP.NET Core).
+                Minha trajetória inclui o desenvolvimento de soluções backend robustas, APIs RESTful
+                e a otimização de bancos de dados SQL Server para aplicações de alta performance.
+              </p>
+              <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
+                Possuo um olhar técnico diferenciado devido à minha base em microprocessadores
+                <strong> ARM e Qualcomm</strong>, o que alimenta minha paixão por entender o
+                funcionamento do software “por baixo dos panos”.
+              </p>
+              <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
+                Proficiente em práticas modernas de DevOps utilizando
+                <strong> Azure DevOps, Docker</strong> e pipelines de CI/CD para garantir entrega
+                contínua e qualidade de código.
+              </p>
+
+              <div className={styles.experienceTimeline} style={{ marginTop: "2.5rem" }}>
+                {experiences.map((exp, i) => (
+                  <div key={i} className={styles.expItem}>
+                    <div className={styles.expYear}>{exp.year}</div>
+                    <div className={styles.expDot} />
+                    <div className={styles.expContent}>
+                      <strong>{exp.role}</strong>
+                      <span className={styles.expCompany}>{exp.company}</span>
+                      <p>{exp.desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -251,20 +324,19 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
       <section className={`section ${styles.ctaSection}`}>
         <div className="container">
           <div className={styles.ctaBox}>
-            <div className="glow-orb" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)", top: "50%", left: "50%", transform: "translate(-50%,-50%)", zIndex: 0 }} />
             <div className={styles.ctaContent}>
               <span className="section-label">Vamos trabalhar juntos?</span>
               <h2>Entre em contato comigo</h2>
               <p>
-                Pode ser um projeto freelance, uma oportunidade de emprego ou apenas um papo sobre tecnologia.
-                Estou disponível!
+                Tem um projeto para desenvolver, uma ideia para tirar do papel ou quer trocar
+                uma ideia sobre tecnologia? Topo freelas e colaborações!
               </p>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
                 <Link href="/contact" className="btn btn-primary">
                   <Mail size={16} /> Enviar mensagem
                 </Link>
                 <a
-                  href="https://linkedin.com/in/joaomesquita"
+                  href="https://linkedin.com/in/otavio17061992"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"

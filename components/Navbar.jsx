@@ -20,7 +20,7 @@ export default function Navbar() {
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
                     <Code2 size={22} />
-                    <span>João.dev</span>
+                    <span>CodaFoFo.ocx</span>
                 </Link>
 
                 <ul className={styles.links}>
@@ -38,7 +38,7 @@ export default function Navbar() {
 
                 <div className={styles.actions}>
                     <Link href="/contact" className="btn btn-primary" style={{ padding: "0.55rem 1.2rem", fontSize: "0.85rem" }}>
-                        Fale comigo
+                        Fala To me
                     </Link>
                 </div>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
                         className="btn btn-primary"
                         onClick={() => setMenuOpen(false)}
                     >
-                        Fale comigo
+                        Fala To me
                     </Link>
                 </div>
             )}

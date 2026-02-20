@@ -61,8 +61,8 @@ export default function ContactPage() {
                                 <div className={styles.infoIcon}><Github size={22} /></div>
                                 <div>
                                     <h3>GitHub</h3>
-                                    <a href="https://github.com/joaomesquita" target="_blank" rel="noopener noreferrer" className={styles.infoLink}>
-                                        @joaomesquita
+                                    <a href="https://github.com/Otavio17061992" target="_blank" rel="noopener noreferrer" className={styles.infoLink}>
+                                        @Otavio17061992
                                     </a>
                                 </div>
                             </div>
@@ -71,8 +71,8 @@ export default function ContactPage() {
                                 <div className={styles.infoIcon}><Linkedin size={22} /></div>
                                 <div>
                                     <h3>LinkedIn</h3>
-                                    <a href="https://linkedin.com/in/joaomesquita" target="_blank" rel="noopener noreferrer" className={styles.infoLink}>
-                                        João Mesquita
+                                    <a href="https://linkedin.com/in/otavio17061992" target="_blank" rel="noopener noreferrer" className={styles.infoLink}>
+                                        Otávio Mesquita
                                     </a>
                                 </div>
                             </div>

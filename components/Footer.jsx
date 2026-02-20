@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, Code2, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Heart, Instagram } from "lucide-react";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -10,14 +10,14 @@ export default function Footer() {
                     <div className={styles.brand}>
                         <Link href="/" className={styles.logo}>
                             <Code2 size={20} />
-                            <span>João.dev</span>
+                            <span>CodaFoFo.ocx</span>
                         </Link>
                         <p className={styles.tagline}>
-                            Desenvolvendo soluções com propósito há 4 anos.
+                            Desenvolvendo soluções com propósito  alguns anos
                         </p>
                         <div className={styles.socials}>
                             <a
-                                href="https://github.com/joaomesquita"
+                                href="https://github.com/Otavio17061992"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.socialLink}
@@ -26,7 +26,7 @@ export default function Footer() {
                                 <Github size={18} />
                             </a>
                             <a
-                                href="https://linkedin.com/in/joaomesquita"
+                                href="https://linkedin.com/in/otavio17061992"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.socialLink}
@@ -35,11 +35,13 @@ export default function Footer() {
                                 <Linkedin size={18} />
                             </a>
                             <a
-                                href="mailto:joao@email.com"
+                                href="https://www.instagram.com/codafofo.msx/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={styles.socialLink}
-                                aria-label="Email"
+                                aria-label="Instagram"
                             >
-                                <Mail size={18} />
+                                <Instagram size={18} />
                             </a>
                         </div>
                     </div>
@@ -69,8 +71,8 @@ export default function Footer() {
 
                 <div className={styles.bottom}>
                     <p>
-                        © {new Date().getFullYear()} João Mesquita. Feito com{" "}
-                        <Heart size={14} className={styles.heart} /> em Next.js + PostgreSQL
+                        © {new Date().getFullYear()} João Mesquita. Feito por mim
+                        com Next.js + PostgreSQL
                     </p>
                 </div>
             </div>
