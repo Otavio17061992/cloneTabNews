@@ -98,7 +98,7 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
             </span>
 
             <h1 className={styles.heroTitle}>
-              Olá, sou{" "}
+              It's me, I'm, {" "}
               <span style={{ color: "var(--accent)" }}>
                 {typed}
                 <span className={styles.cursor}>|</span>
