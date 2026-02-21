@@ -39,7 +39,7 @@ export default function ContactPage() {
                     <span className="section-label">Fale comigo</span>
                     <h1 className="section-title" style={{ marginTop: "0.5rem" }}>Entre em Contato</h1>
                     <p className="section-description">
-                        Tem um projeto em mente? Uma oportunidade? Ou só quer trocar uma ideia sobre tecnologia? Me chama!
+                        Tem um projeto em mente? Ou só quer trocar uma ideia sobre tecnologia? Me chama!
                     </p>
                 </div>
             </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                                 <div>
                                     <h3>Disponibilidade</h3>
                                     <p style={{ color: "var(--success)", fontSize: "0.9rem", fontWeight: 600 }}>
-                                        ✅ Disponível para projetos
+                                        ✅ Disponível para Colabs
                                     </p>
                                 </div>
                             </div>

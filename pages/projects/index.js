@@ -29,7 +29,7 @@ export default function ProjectsPage({ projects = [] }) {
                     <span className="section-label">Portfólio</span>
                     <h1 className="section-title" style={{ marginTop: "0.5rem" }}>Meus Projetos</h1>
                     <p className="section-description">
-                        Uma coleção de projetos que desenvolvi ao longo de 4 anos como desenvolvedor.
+                        Uma coleção de projetos que desenvolvi ao longo desses anos como desenvolvedor.
                     </p>
                 </div>
             </div>
