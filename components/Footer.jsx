@@ -10,7 +10,7 @@ export default function Footer() {
                     <div className={styles.brand}>
                         <Link href="/" className={styles.logo}>
                             <Code2 size={20} />
-                            <span>CodaFoFo.ocx</span>
+                            <span>João Mesquita</span>
                         </Link>
                         <p className={styles.tagline}>
                             Desenvolvendo soluções com propósito há alguns anos.

@@ -13,16 +13,22 @@ import {
   Layers,
   ChevronDown,
   Instagram,
+  FileDown,
 } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
 import PostCard from "../components/PostCard";
+import siteConfig from "../config/site";
 import styles from "./index.module.css";
 
 const skills = [
-  { icon: <Globe size={22} />, name: "Frontend", items: ["React", "Next.js", "TypeScript", "CSS3"] },
-  { icon: <Server size={22} />, name: "Backend", items: [".NET C# MVC", "Node.js", "REST APIs", "ASP.NET"] },
+  {
+    icon: <Server size={22} />,
+    name: "Backend",
+    items: ["C#", ".NET", "ASP.NET Core", "ASP.NET Web Forms", "Entity Framework", "REST APIs", "Node.js"],
+  },
   { icon: <Database size={22} />, name: "Banco de Dados", items: ["SQL Server", "PostgreSQL", "MongoDB"] },
-  { icon: <Layers size={22} />, name: "DevOps", items: ["Docker", "Git", "GitHub Actions", "Linux"] },
+  { icon: <Layers size={22} />, name: "DevOps", items: ["Azure DevOps", "Docker", "Git", "GitHub Actions", "Linux"] },
+  { icon: <Globe size={22} />, name: "Frontend", items: ["React", "Next.js", "TypeScript", "CSS3"] },
 ];
 
 const experiences = [
@@ -31,18 +37,21 @@ const experiences = [
     role: "Desenvolvedor de Software",
     company: "Geosaúde Gerenciadora",
     desc: "Desenvolvo e mantenho aplicações web com foco em performance e escalabilidade utilizando C# e Web Forms. Gestão de demandas com Azure DevOps, versionamento com Git, manipulação e otimização de dados com SQL Server.",
+    result: "[PREENCHER — ex.: reduzi o tempo de X em Y%]",
   },
   {
     year: "Nov 2023 – Jan 2025",
     role: "Analista de Aplicações",
     company: "Comerc Energia",
     desc: "Criação de aplicações com C#, Windows Forms e React Native. Análise de dados de consumo de energia, consultas SQL Server e gestão de projetos internos.",
+    result: "[PREENCHER]",
   },
   {
     year: "Jun 2022 – Fev 2024",
     role: "Desenvolvedor de Software",
     company: "GESTAL Gestão de Energia",
     desc: "Criação de aplicações em C# + JS para otimizar tarefas, análise de consumo de energia elétrica, consultas SQL Server e testes na plataforma Smart Energy.",
+    result: "[PREENCHER]",
   },
   {
     year: "Ago 2020 – Dez 2022",
@@ -94,11 +103,11 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
         <div className="container">
           <div className={styles.heroContent}>
             <span className="section-label">
-              <Terminal size={12} /> Disponível para projetos
+              <Terminal size={12} /> Aberto a oportunidades
             </span>
 
             <h1 className={styles.heroTitle}>
-              It's me, I'm, {" "}
+              Olá, eu sou{" "}
               <span style={{ color: "var(--accent)" }}>
                 {typed}
                 <span className={styles.cursor}>|</span>
@@ -106,9 +115,10 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
             </h1>
 
             <p className={styles.heroSub}>
-              Especialista em <strong>.NET C# e SQL Server</strong> && <strong>Next.js com PostgreSQL</strong>.
-              Arquitetando soluções escaláveis e transformando complexidade em software de alto impacto.
-              Aberto a colaborações.
+              Desenvolvedor Backend <strong>.NET / C#</strong> com experiência em{" "}
+              <strong>ASP.NET, SQL Server e Azure DevOps</strong>. Construo APIs e sistemas que
+              resolvem problemas reais de negócio, com foco em código limpo, performance e dados bem
+              modelados.
             </p>
 
             <div className={styles.heroActions}>
@@ -202,19 +212,18 @@ var dev = new Pessoa {
                 Resolvendo problemas reais com código sólido
               </h2>
               <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
-                Desenvolvedor especializado no ecossistema <strong>.NET</strong> (C#, ASP.NET Core).
-                Minha trajetória inclui o desenvolvimento de soluções backend robustas, APIs RESTful
-                e a otimização de bancos de dados SQL Server para aplicações de alta performance.
+                Sou desenvolvedor focado no ecossistema <strong>.NET</strong> (C#, ASP.NET), com
+                experiência construindo e mantendo aplicações web, APIs e integrações com{" "}
+                <strong>SQL Server</strong> em ambientes corporativos dos setores de saúde e energia.
               </p>
               <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
-                Possuo um olhar técnico diferenciado devido à minha base em microprocessadores
-                <strong> ARM e Qualcomm</strong>, o que alimenta minha paixão por entender o
-                funcionamento do software “por baixo dos panos”.
+                Comecei na área de TI pelo suporte técnico, o que me deu uma visão prática de como
+                sistemas se comportam em produção e de como problemas afetam o usuário final. Hoje uso
+                isso para escrever software mais confiável e fácil de manter.
               </p>
               <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
-                Proficiente em práticas modernas de DevOps utilizando
-                <strong> Azure DevOps, Docker</strong> e pipelines de CI/CD para garantir entrega
-                contínua e qualidade de código.
+                No dia a dia trabalho com <strong>Azure DevOps, Git e Docker</strong>, e estou sempre
+                estudando arquitetura de APIs, testes automatizados e boas práticas de backend.
               </p>
 
               <div className={styles.experienceTimeline} style={{ marginTop: "2.5rem" }}>
@@ -226,6 +235,11 @@ var dev = new Pessoa {
                       <strong>{exp.role}</strong>
                       <span className={styles.expCompany}>{exp.company}</span>
                       <p>{exp.desc}</p>
+                      {exp.result && (
+                        <p>
+                          <strong>Resultado:</strong> {exp.result}
+                        </p>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -295,7 +309,7 @@ var dev = new Pessoa {
       </section>
 
       {/* ─── Posts Recentes ─── */}
-      {recentPosts.length > 0 && (
+      {siteConfig.showRecentPostsOnHome && recentPosts.length > 0 && (
         <section className={`section ${styles.postsSection}`}>
           <div className="container">
             <div className="section-header">
@@ -329,9 +343,12 @@ var dev = new Pessoa {
               <span className="section-label">Vamos trabalhar juntos?</span>
               <h2>Entre em contato comigo</h2>
               <p>
-                Tem um projeto para desenvolver, uma ideia para tirar do papel ou quer trocar
-                uma ideia sobre tecnologia? Topo freelas e colaborações!
+                Estou aberto a oportunidades como Desenvolvedor Backend .NET. Se quiser conversar
+                sobre uma vaga, um projeto ou tecnologia, me chama!
               </p>
+              <a href={`mailto:${siteConfig.contactEmail}`} className={styles.ctaEmail}>
+                <Mail size={16} /> {siteConfig.contactEmail}
+              </a>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
                 <Link href="/contact" className="btn btn-primary">
                   <Mail size={16} /> Enviar mensagem
@@ -343,6 +360,9 @@ var dev = new Pessoa {
                   className="btn btn-outline"
                 >
                   <Linkedin size={16} /> LinkedIn
+                </a>
+                <a href={siteConfig.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                  <FileDown size={16} /> Baixar currículo (PDF)
                 </a>
               </div>
             </div>
@@ -360,15 +380,16 @@ export async function getServerSideProps(context) {
     const base = `${protocol}://${host}`;
     const [projRes, postsRes] = await Promise.all([
       fetch(`${base}/api/v1/projects`),
-      fetch(`${base}/api/v1/posts`),
+      siteConfig.showRecentPostsOnHome ? fetch(`${base}/api/v1/posts`) : null,
     ]);
 
     const projData = projRes.ok ? await projRes.json() : { projects: [] };
-    const postsData = postsRes.ok ? await postsRes.json() : { posts: [] };
+    const postsData = postsRes?.ok ? await postsRes.json() : { posts: [] };
 
     return {
       props: {
-        featuredProjects: (projData.projects || []).filter((p) => p.featured).slice(0, 3),
+        // A API já ordena destaque primeiro; com um único destaque, completa com os mais recentes
+        featuredProjects: (projData.projects || []).slice(0, 3),
         recentPosts: (postsData.posts || []).slice(0, 3),
       },
     };

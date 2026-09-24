@@ -1,0 +1,34 @@
+/* eslint-disable camelcase */
+
+// TEMPLATE — não é executado. Quando o projeto .NET estiver publicado no GitHub:
+//   1. npm run migration:create -- add-dotnet-api-project
+//   2. Copie este conteúdo para o arquivo gerado em Infra/migrations/
+//   3. Preencha os campos marcados com [PREENCHER]
+//   4. npm run migration:up
+//
+// Campos opcionais: image_url (thumbnail do card; sem ela aparece o "</>"),
+// demo_url (exibe o botão "Ver demo") e featured (exibe o selo "Destaque").
+// Se este virar o projeto principal, desmarque o destaque dos demais no mesmo up().
+
+exports.shorthands = undefined;
+
+const GITHUB_URL = "https://github.com/Otavio17061992/[PREENCHER]";
+
+exports.up = (pgm) => {
+    pgm.sql(`
+    INSERT INTO projects (title, description, tech_stack, image_url, github_url, demo_url, featured) VALUES
+    (
+      '[PREENCHER] — API em ASP.NET Core',
+      '[PREENCHER]',
+      ARRAY['.NET 8', 'ASP.NET Core', 'EF Core', 'SQL Server', 'xUnit', 'Docker', 'GitHub Actions'],
+      NULL,
+      '${GITHUB_URL}',
+      NULL,
+      false
+    )
+  `);
+};
+
+exports.down = (pgm) => {
+    pgm.sql(`DELETE FROM projects WHERE github_url = '${GITHUB_URL}'`);
+};

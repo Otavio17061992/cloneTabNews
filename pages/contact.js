@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Github, Linkedin, Send, CheckCircle2, MapPin, Clock } from "lucide-react";
+import siteConfig from "../config/site";
 import styles from "./contact.module.css";
 
 export default function ContactPage() {
@@ -53,7 +54,7 @@ export default function ContactPage() {
                                 <div className={styles.infoIcon}><Mail size={22} /></div>
                                 <div>
                                     <h3>E-mail</h3>
-                                    <a href="mailto:[EMAIL_ADDRESS]" className={styles.infoLink}>[EMAIL_ADDRESS]</a>
+                                    <a href={`mailto:${siteConfig.contactEmail}`} className={styles.infoLink}>{siteConfig.contactEmail}</a>
                                 </div>
                             </div>
 
@@ -153,5 +154,5 @@ export default function ContactPage() {
 }
 
 export async function getStaticProps() {
-    return { props: { title: "Contato", description: "Entre em contato com João Mesquita, desenvolvedor full-stack." } };
+    return { props: { title: "Contato", description: "Entre em contato com João Mesquita, Desenvolvedor Backend .NET." } };
 }

@@ -20,7 +20,7 @@ export default function Navbar() {
             <nav className={styles.nav}>
                 <Link href="/" className={styles.logo}>
                     <Code2 size={22} />
-                    <span>CodaFoFo.ocx</span>
+                    <span>João Mesquita</span>
                 </Link>
 
                 <ul className={styles.links}>

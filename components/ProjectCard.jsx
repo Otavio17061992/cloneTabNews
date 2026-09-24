@@ -5,25 +5,24 @@ import styles from "./ProjectCard.module.css";
 export default function ProjectCard({ project }) {
     const { id, title, description, tech_stack = [], image_url, github_url, demo_url, featured } = project;
 
+    const featuredBadge = featured && (
+        <span className={styles.featuredBadge}>
+            <Star size={12} fill="currentColor" /> Destaque
+        </span>
+    );
+
     return (
         <div className={`card ${styles.card}`}>
+            {/* Usa a imagem do projeto quando houver; "</>" fica só como fallback */}
             {image_url ? (
                 <div className={styles.imageWrapper}>
-                    <img src={image_url} alt={title} className={styles.image} />
-                    {featured && (
-                        <span className={styles.featuredBadge}>
-                            <Star size={12} fill="currentColor" /> Destaque
-                        </span>
-                    )}
+                    <img src={image_url} alt={title} className={styles.image} loading="lazy" />
+                    {featuredBadge}
                 </div>
             ) : (
                 <div className={styles.imagePlaceholder}>
                     <span className={styles.placeholderIcon}>{"</>"}</span>
-                    {featured && (
-                        <span className={styles.featuredBadge}>
-                            <Star size={12} fill="currentColor" /> Destaque
-                        </span>
-                    )}
+                    {featuredBadge}
                 </div>
             )}
 
@@ -66,7 +65,7 @@ export default function ProjectCard({ project }) {
                             className="btn btn-outline"
                             style={{ padding: "0.5rem 1rem", fontSize: "0.82rem" }}
                         >
-                            <ExternalLink size={15} /> Demo
+                            <ExternalLink size={15} /> Ver demo
                         </a>
                     )}
                 </div>

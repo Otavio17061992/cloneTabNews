@@ -354,6 +354,19 @@
     color: var(--text-secondary);
 }
 
+.ctaEmail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.ctaEmail:hover {
+    text-decoration: underline;
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 900px) {
     .hero .container {
