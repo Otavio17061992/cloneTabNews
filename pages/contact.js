@@ -40,7 +40,7 @@ export default function ContactPage() {
                     <span className="section-label">Fale comigo</span>
                     <h1 className="section-title" style={{ marginTop: "0.5rem" }}>Entre em Contato</h1>
                     <p className="section-description">
-                        Tem um projeto em mente? Ou só quer trocar uma ideia sobre tecnologia? Me chama!
+                        Vamos conversar? {siteConfig.contactMessage}
                     </p>
                 </div>
             </div>
@@ -72,8 +72,8 @@ export default function ContactPage() {
                                 <div className={styles.infoIcon}><Linkedin size={22} /></div>
                                 <div>
                                     <h3>LinkedIn</h3>
-                                    <a href="https://linkedin.com/in/otavio17061992" target="_blank" rel="noopener noreferrer" className={styles.infoLink}>
-                                        Otávio Mesquita
+                                    <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" className={styles.infoLink}>
+                                        João Mesquita
                                     </a>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                                 <div>
                                     <h3>Disponibilidade</h3>
                                     <p style={{ color: "var(--success)", fontSize: "0.9rem", fontWeight: 600 }}>
-                                        ✅ Disponível para Colabs
+                                        ✅ Aberto a oportunidades
                                     </p>
                                 </div>
                             </div>

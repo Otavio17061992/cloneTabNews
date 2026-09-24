@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail, Code2, Heart, Instagram } from "lucide-react";
+import siteConfig from "../config/site";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -26,7 +27,7 @@ export default function Footer() {
                                 <Github size={18} />
                             </a>
                             <a
-                                href="https://linkedin.com/in/otavio17061992"
+                                href={siteConfig.linkedinUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.socialLink}

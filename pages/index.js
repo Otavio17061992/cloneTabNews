@@ -141,7 +141,7 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/otavio17061992"
+                href={siteConfig.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialBtn}
@@ -171,7 +171,7 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
               </div>
               <div className={styles.codeBody}>{`// C# 12 - Compact & Clean
 var dev = new Pessoa {
-  Name = "Otávio Mesquita",
+  Name = "João Mesquita",
   Role = "Software Developer",
   Stack = new[] {
     ".NET 8", "C#", "SQL Server",
@@ -200,7 +200,7 @@ var dev = new Pessoa {
             <div className={styles.aboutPhoto}>
               <img
                 src="https://github.com/Otavio17061992.png"
-                alt="Otávio Mesquita"
+                alt="João Mesquita"
                 className={styles.photoImg}
               />
             </div>
@@ -342,10 +342,7 @@ var dev = new Pessoa {
             <div className={styles.ctaContent}>
               <span className="section-label">Vamos trabalhar juntos?</span>
               <h2>Entre em contato comigo</h2>
-              <p>
-                Estou aberto a oportunidades como Desenvolvedor Backend .NET. Se quiser conversar
-                sobre uma vaga, um projeto ou tecnologia, me chama!
-              </p>
+              <p>{siteConfig.contactMessage}</p>
               <a href={`mailto:${siteConfig.contactEmail}`} className={styles.ctaEmail}>
                 <Mail size={16} /> {siteConfig.contactEmail}
               </a>
@@ -354,7 +351,7 @@ var dev = new Pessoa {
                   <Mail size={16} /> Enviar mensagem
                 </Link>
                 <a
-                  href="https://linkedin.com/in/otavio17061992"
+                  href={siteConfig.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"

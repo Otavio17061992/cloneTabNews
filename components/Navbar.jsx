@@ -38,7 +38,7 @@ export default function Navbar() {
 
                 <div className={styles.actions}>
                     <Link href="/contact" className="btn btn-primary" style={{ padding: "0.55rem 1.2rem", fontSize: "0.85rem" }}>
-                        Fala To me
+                        Fale comigo
                     </Link>
                 </div>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
                         className="btn btn-primary"
                         onClick={() => setMenuOpen(false)}
                     >
-                        Fala To me
+                        Fale comigo
                     </Link>
                 </div>
             )}
