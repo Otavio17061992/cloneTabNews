@@ -1,138 +1,137 @@
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
 }
 
 .nav {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(1.25rem, 5vw, 2rem);
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 2rem);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 800;
-    font-size: 1.05rem;
-    color: var(--text-primary);
-    transition: var(--transition);
-    text-decoration: none;
-    letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  transition: var(--transition);
+  text-decoration: none;
+  letter-spacing: -0.03em;
 }
 
 .logo svg {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 .logo:hover {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 .links {
-    display: flex;
-    list-style: none;
-    gap: 0.1rem;
-    align-items: center;
+  display: flex;
+  list-style: none;
+  gap: 0.1rem;
+  align-items: center;
 }
 
 .link {
-    padding: 0.45rem 0.875rem;
-    border-radius: 980px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: var(--transition);
-    text-decoration: none;
+  padding: 0.45rem 0.875rem;
+  border-radius: 980px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  text-decoration: none;
 }
 
 .link:hover {
-    color: var(--text-primary);
-    background: var(--bg-secondary);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
 }
 
 .active {
-    color: var(--accent) !important;
-    background: rgba(0, 113, 227, 0.08) !important;
+  color: var(--accent) !important;
+  background: rgba(0, 113, 227, 0.08) !important;
 }
 
 .actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .menuBtn {
-    display: none;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-secondary);
-    padding: 0.4rem;
-    cursor: pointer;
-    transition: var(--transition);
-    align-items: center;
-    justify-content: center;
+  display: none;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 0.4rem;
+  cursor: pointer;
+  transition: var(--transition);
+  align-items: center;
+  justify-content: center;
 }
 
 .menuBtn:hover {
-    color: var(--text-primary);
-    background: var(--border);
+  color: var(--text-primary);
+  background: var(--border);
 }
 
 .mobileMenu {
-    display: none;
-    padding: 0.75rem clamp(1.25rem, 5vw, 2rem);
-    border-top: 1px solid var(--border);
-    flex-direction: column;
-    gap: 0.25rem;
-    background: rgba(255, 255, 255, 0.95);
+  display: none;
+  padding: 0.75rem clamp(1.25rem, 5vw, 2rem);
+  border-top: 1px solid var(--border);
+  flex-direction: column;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .mobileLink {
-    padding: 0.7rem 1rem;
-    border-radius: var(--radius);
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: var(--transition);
-    text-decoration: none;
-    font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  text-decoration: none;
+  font-size: 0.95rem;
 }
 
 .mobileLink:hover {
-    color: var(--text-primary);
-    background: var(--bg-secondary);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
 }
 
 .activeMobile {
-    color: var(--accent) !important;
-    background: rgba(0, 113, 227, 0.08) !important;
+  color: var(--accent) !important;
+  background: rgba(0, 113, 227, 0.08) !important;
 }
 
 @media (max-width: 768px) {
+  .links,
+  .actions {
+    display: none;
+  }
 
-    .links,
-    .actions {
-        display: none;
-    }
+  .menuBtn {
+    display: flex;
+  }
 
-    .menuBtn {
-        display: flex;
-    }
-
-    .mobileMenu {
-        display: flex;
-    }
+  .mobileMenu {
+    display: flex;
+  }
 }

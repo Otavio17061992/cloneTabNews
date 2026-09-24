@@ -15,34 +15,40 @@ Este projeto é para fixação dos conceitos básicos de desenvolvimento de soft
 ## ⚙️ Como rodar o projeto localmente
 
 ### Pré-requisitos
+
 - Node.js (versão 18+ recomendada)
 - Docker e Docker Compose instalados
 
 ### Passo a passo
 
 1. **Clone o repositório**
+
    ```bash
    git clone https://github.com/Otavio17061992/cloneTabNews.git
    cd cloneTabNews
    ```
 
 2. **Instale as dependências**
+
    ```bash
    npm install
    ```
 
 3. **Suba os serviços de infraestrutura (Banco de Dados)**
+
    ```bash
    npm run services:up
    ```
 
 4. **Rode as migrações do banco de dados**
    Isso criará as tabelas e inserirá os dados iniciais.
+
    ```bash
    npm run migration:up
    ```
 
 5. **Inicie o servidor de desenvolvimento**
+
    ```bash
    npm run dev
    ```

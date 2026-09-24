@@ -24,11 +24,31 @@ const skills = [
   {
     icon: <Server size={22} />,
     name: "Backend",
-    items: ["C#", ".NET", "ASP.NET Core", "ASP.NET Web Forms", "Entity Framework", "REST APIs", "Node.js"],
+    items: [
+      "C#",
+      ".NET",
+      "ASP.NET Core",
+      "ASP.NET Web Forms",
+      "Entity Framework",
+      "REST APIs",
+      "Node.js",
+    ],
   },
-  { icon: <Database size={22} />, name: "Banco de Dados", items: ["SQL Server", "PostgreSQL", "MongoDB"] },
-  { icon: <Layers size={22} />, name: "DevOps", items: ["Azure DevOps", "Docker", "Git", "GitHub Actions", "Linux"] },
-  { icon: <Globe size={22} />, name: "Frontend", items: ["React", "Next.js", "TypeScript", "CSS3"] },
+  {
+    icon: <Database size={22} />,
+    name: "Banco de Dados",
+    items: ["SQL Server", "PostgreSQL", "MongoDB"],
+  },
+  {
+    icon: <Layers size={22} />,
+    name: "DevOps",
+    items: ["Azure DevOps", "Docker", "Git", "GitHub Actions", "Linux"],
+  },
+  {
+    icon: <Globe size={22} />,
+    name: "Frontend",
+    items: ["React", "Next.js", "TypeScript", "CSS3"],
+  },
 ];
 
 const experiences = [
@@ -90,7 +110,7 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -115,10 +135,10 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
             </h1>
 
             <p className={styles.heroSub}>
-              Desenvolvedor Backend <strong>.NET / C#</strong> com experiência em{" "}
-              <strong>ASP.NET, SQL Server e Azure DevOps</strong>. Construo APIs e sistemas que
-              resolvem problemas reais de negócio, com foco em código limpo, performance e dados bem
-              modelados.
+              Desenvolvedor Backend <strong>.NET / C#</strong> com experiência
+              em <strong>ASP.NET, SQL Server e Azure DevOps</strong>. Construo
+              APIs e sistemas que resolvem problemas reais de negócio, com foco
+              em código limpo, performance e dados bem modelados.
             </p>
 
             <div className={styles.heroActions}>
@@ -164,9 +184,18 @@ export default function Home({ featuredProjects = [], recentPosts = [] }) {
           <div className={styles.heroVisual}>
             <div className={styles.codeCard} ref={codeCardRef}>
               <div className={styles.codeHeader}>
-                <span className={styles.dot} style={{ background: "#ef4444" }} />
-                <span className={styles.dot} style={{ background: "#f59e0b" }} />
-                <span className={styles.dot} style={{ background: "#10b981" }} />
+                <span
+                  className={styles.dot}
+                  style={{ background: "#ef4444" }}
+                />
+                <span
+                  className={styles.dot}
+                  style={{ background: "#f59e0b" }}
+                />
+                <span
+                  className={styles.dot}
+                  style={{ background: "#10b981" }}
+                />
                 <span className={styles.fileName}>joao.dev</span>
               </div>
               <div className={styles.codeBody}>{`// C# 12 - Compact & Clean
@@ -208,25 +237,53 @@ var dev = new Pessoa {
             {/* Texto */}
             <div className={styles.aboutText}>
               <span className="section-label">Sobre mim</span>
-              <h2 className="section-title" style={{ textAlign: "left", marginTop: "0.5rem" }}>
+              <h2
+                className="section-title"
+                style={{ textAlign: "left", marginTop: "0.5rem" }}
+              >
                 Resolvendo problemas reais com código sólido
               </h2>
-              <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
-                Sou desenvolvedor focado no ecossistema <strong>.NET</strong> (C#, ASP.NET), com
-                experiência construindo e mantendo aplicações web, APIs e integrações com{" "}
-                <strong>SQL Server</strong> em ambientes corporativos dos setores de saúde e energia.
+              <p
+                style={{
+                  marginTop: "0.75rem",
+                  lineHeight: "1.85",
+                  fontSize: "1rem",
+                }}
+              >
+                Sou desenvolvedor focado no ecossistema <strong>.NET</strong>{" "}
+                (C#, ASP.NET), com experiência construindo e mantendo aplicações
+                web, APIs e integrações com <strong>SQL Server</strong> em
+                ambientes corporativos dos setores de saúde e energia.
               </p>
-              <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
-                Comecei na área de TI pelo suporte técnico, o que me deu uma visão prática de como
-                sistemas se comportam em produção e de como problemas afetam o usuário final. Hoje uso
-                isso para escrever software mais confiável e fácil de manter.
+              <p
+                style={{
+                  marginTop: "0.75rem",
+                  lineHeight: "1.85",
+                  fontSize: "1rem",
+                }}
+              >
+                Comecei na área de TI pelo suporte técnico, o que me deu uma
+                visão prática de como sistemas se comportam em produção e de
+                como problemas afetam o usuário final. Hoje uso isso para
+                escrever software mais confiável e fácil de manter.
               </p>
-              <p style={{ marginTop: "0.75rem", lineHeight: "1.85", fontSize: "1rem" }}>
-                No dia a dia trabalho com <strong>Azure DevOps, Git e Docker</strong>, e estou sempre
-                estudando arquitetura de APIs, testes automatizados e boas práticas de backend.
+              <p
+                style={{
+                  marginTop: "0.75rem",
+                  lineHeight: "1.85",
+                  fontSize: "1rem",
+                }}
+              >
+                No dia a dia trabalho com{" "}
+                <strong>Azure DevOps, Git e Docker</strong>, e estou sempre
+                estudando arquitetura de APIs, testes automatizados e boas
+                práticas de backend.
               </p>
 
-              <div className={styles.experienceTimeline} style={{ marginTop: "2.5rem" }}>
+              <div
+                className={styles.experienceTimeline}
+                style={{ marginTop: "2.5rem" }}
+              >
                 {experiences.map((exp, i) => (
                   <div key={i} className={styles.expItem}>
                     <div className={styles.expYear}>{exp.year}</div>
@@ -296,7 +353,10 @@ var dev = new Pessoa {
             </div>
           ) : (
             <div className={styles.emptyState}>
-              <p>Projetos sendo carregados... Certifique-se de que o banco de dados está rodando.</p>
+              <p>
+                Projetos sendo carregados... Certifique-se de que o banco de
+                dados está rodando.
+              </p>
             </div>
           )}
 
@@ -343,10 +403,20 @@ var dev = new Pessoa {
               <span className="section-label">Vamos trabalhar juntos?</span>
               <h2>Entre em contato comigo</h2>
               <p>{siteConfig.contactMessage}</p>
-              <a href={`mailto:${siteConfig.contactEmail}`} className={styles.ctaEmail}>
+              <a
+                href={`mailto:${siteConfig.contactEmail}`}
+                className={styles.ctaEmail}
+              >
                 <Mail size={16} /> {siteConfig.contactEmail}
               </a>
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
+              >
                 <Link href="/contact" className="btn btn-primary">
                   <Mail size={16} /> Enviar mensagem
                 </Link>
@@ -358,7 +428,12 @@ var dev = new Pessoa {
                 >
                   <Linkedin size={16} /> LinkedIn
                 </a>
-                <a href={siteConfig.resumeUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                <a
+                  href={siteConfig.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline"
+                >
                   <FileDown size={16} /> Baixar currículo (PDF)
                 </a>
               </div>

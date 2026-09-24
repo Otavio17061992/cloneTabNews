@@ -3,15 +3,15 @@ dotenv.config({ path: ".env.development" });
 const nextJest = require("next/jest");
 
 const createJestConfig = nextJest({
-    dir: "./",
+  dir: "./",
 });
 
 const customJestConfig = {
-    testEnvironment: "node",
-    testPathPattern: "tests/integration",
-    moduleNameMapper: {
-        "^@/(.*)$": "<rootDir>/$1",
-    },
+  testEnvironment: "node",
+  testPathPattern: "tests/integration",
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/$1",
+  },
 };
 
 module.exports = createJestConfig(customJestConfig);

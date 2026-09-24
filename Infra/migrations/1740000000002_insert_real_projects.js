@@ -3,8 +3,8 @@
 exports.shorthands = undefined;
 
 exports.up = (pgm) => {
-    // Seed: projetos reais solicitados pelo usuário
-    pgm.sql(`
+  // Seed: projetos reais solicitados pelo usuário
+  pgm.sql(`
     INSERT INTO projects (title, description, tech_stack, github_url, featured) VALUES
     ('KubernetsSimpleApplication', 'A simple application deployed using Kubernetes', ARRAY['Kubernetes', 'Docker'], 'https://github.com/Otavio17061992/KubernetsSimpleApplication', true),
     ('EduManager', 'Sistema de gerenciamento educacional e escolar', ARRAY['C#', '.NET', 'React'], 'https://github.com/Otavio17061992/EduManager', true),
@@ -14,8 +14,8 @@ exports.up = (pgm) => {
 };
 
 exports.down = (pgm) => {
-    // Delete os projetos inseridos nesta migration especificamente
-    pgm.sql(`
+  // Delete os projetos inseridos nesta migration especificamente
+  pgm.sql(`
     DELETE FROM projects WHERE github_url IN (
       'https://github.com/Otavio17061992/KubernetsSimpleApplication',
       'https://github.com/Otavio17061992/EduManager',
