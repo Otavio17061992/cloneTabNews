@@ -292,7 +292,8 @@ var dev = new Pessoa {
                       <strong>{exp.role}</strong>
                       <span className={styles.expCompany}>{exp.company}</span>
                       <p>{exp.desc}</p>
-                      {exp.result && (
+                      {/* Oculta enquanto o resultado ainda for placeholder */}
+                      {exp.result && !exp.result.includes("[PREENCHER") && (
                         <p>
                           <strong>Resultado:</strong> {exp.result}
                         </p>

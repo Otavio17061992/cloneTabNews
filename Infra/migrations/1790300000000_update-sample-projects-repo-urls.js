@@ -11,11 +11,10 @@ exports.shorthands = undefined;
 
 const GENERIC_URL = "https://github.com/Otavio17061992";
 
-const DEV_PORTFOLIO_URL = "[PREENCHER — URL do repositório]";
+const DEV_PORTFOLIO_URL = "https://github.com/Otavio17061992/cloneTabNews";
 
 // URL do repositório, ou null para remover o projeto do portfólio.
-const API_REST_NODE_URL =
-  "[PREENCHER — URL do repositório, ou null para remover]";
+const API_REST_NODE_URL = "https://github.com/Otavio17061992/CrudWithAPI";
 
 function assertFilled(...values) {
   const pending = values.filter(
