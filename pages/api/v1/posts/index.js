@@ -1,4 +1,5 @@
 import PostModel from "../../../../models/postModel.js";
+import { requireAdmin } from "../../../../Infra/auth.js";
 
 export default async function handler(req, res) {
     // GET /api/v1/posts?page=1&limit=12
@@ -6,15 +7,11 @@ export default async function handler(req, res) {
         try {
             const page = parseInt(req.query.page || "1");
             const limit = parseInt(req.query.limit || "50");
-            const { status, admin_secret } = req.query;
-
-            const SERVER_SECRET = process.env.ADMIN_SECRET || "12345";
+            const { status } = req.query;
             let includeUnapproved = false;
 
             if (status === "pending") {
-                if (admin_secret !== SERVER_SECRET) {
-                    return res.status(401).json({ error: "Unauthorized: Invalid admin secret" });
-                }
+                if (!requireAdmin(req, res)) return;
                 includeUnapproved = true;
             }
 

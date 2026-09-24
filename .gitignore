@@ -1,2 +1,6 @@
 .next/
 node_modules/
+
+# Variáveis de ambiente locais/secretas
+.env
+.env*.local

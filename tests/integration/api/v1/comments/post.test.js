@@ -1,3 +1,5 @@
+const adminHeaders = { Authorization: `Bearer ${process.env.ADMIN_API_KEY}` };
+
 test("Comment approval workflow", async () => {
     const postRes = await fetch("http://localhost:3000/api/v1/posts", {
         method: "POST",
@@ -15,8 +17,7 @@ test("Comment approval workflow", async () => {
 
     await fetch(`http://localhost:3000/api/v1/posts/${postId}/approve`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ admin_secret: "12345" }),
+        headers: adminHeaders,
     });
 
     const response = await fetch("http://localhost:3000/api/v1/comments", {
@@ -41,8 +42,7 @@ test("Comment approval workflow", async () => {
 
     const approveRes = await fetch(`http://localhost:3000/api/v1/comments/${commentId}/approve`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ admin_secret: "12345" }),
+        headers: adminHeaders,
     });
     expect(approveRes.status).toBe(200);
 
@@ -56,8 +56,7 @@ test("Comment approval workflow", async () => {
 test("Comment approval security and edge cases", async () => {
     const nonexistentRes = await fetch("http://localhost:3000/api/v1/comments/999999/approve", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ admin_secret: "12345" }),
+        headers: adminHeaders,
     });
     expect(nonexistentRes.status).toBe(404);
 
@@ -80,13 +79,12 @@ test("Comment approval security and edge cases", async () => {
 
     const wrongSecretRes = await fetch(`http://localhost:3000/api/v1/comments/${commentId}/approve`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ admin_secret: "wrong_password" }),
+        headers: { Authorization: "Bearer wrong_password" },
     });
     expect(wrongSecretRes.status).toBe(401);
 
     const wrongBody = await wrongSecretRes.json();
-    expect(wrongBody.error).toBe("Unauthorized: Invalid admin secret");
+    expect(wrongBody.error).toBe("Não autorizado");
 });
 
 test("Post comment count only considers approved comments", async () => {
@@ -106,8 +104,7 @@ test("Post comment count only considers approved comments", async () => {
 
     await fetch(`http://localhost:3000/api/v1/posts/${postId}/approve`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ admin_secret: "12345" }),
+        headers: adminHeaders,
     });
 
     await fetch("http://localhost:3000/api/v1/comments", {
@@ -146,8 +143,7 @@ test("Post comment count only considers approved comments", async () => {
     // Aprova o comentário 2
     await fetch(`http://localhost:3000/api/v1/comments/${commentId2}/approve`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ admin_secret: "12345" }),
+        headers: adminHeaders,
     });
 
     // Busca o post novamente e garante que a contagem é 1 (ignorou o primeiro, contou o aprovado)

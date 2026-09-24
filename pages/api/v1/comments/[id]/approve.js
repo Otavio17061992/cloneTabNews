@@ -1,18 +1,14 @@
 import CommentModel from "../../../../../models/commentModel.js";
+import { requireAdmin } from "../../../../../Infra/auth.js";
 
 export default async function handler(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
 
+    if (!requireAdmin(req, res)) return;
+
     const { id } = req.query;
-    const { admin_secret } = req.body;
-
-    const SERVER_SECRET = process.env.ADMIN_SECRET || "12345";
-
-    if (admin_secret !== SERVER_SECRET) {
-        return res.status(401).json({ error: "Unauthorized: Invalid admin secret" });
-    }
 
     try {
         const comment = await CommentModel.approve(id);

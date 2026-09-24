@@ -10,6 +10,8 @@ export default function AdminDashboard() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const authHeaders = { Authorization: `Bearer ${secret}` };
+
     async function handleLogin(e) {
         e.preventDefault();
         setLoading(true);
@@ -17,7 +19,7 @@ export default function AdminDashboard() {
 
         try {
             // Tenta buscar posts pendentes para validar a senha
-            const resPosts = await fetch(`/api/v1/posts?status=pending&admin_secret=${secret}`);
+            const resPosts = await fetch("/api/v1/posts?status=pending", { headers: authHeaders });
 
             if (!resPosts.ok) {
                 if (resPosts.status === 401) {
@@ -29,7 +31,7 @@ export default function AdminDashboard() {
             const dataPosts = await resPosts.json();
 
             // Se passou da senha, busca também os comentários
-            const resComments = await fetch(`/api/v1/comments?status=pending&admin_secret=${secret}`);
+            const resComments = await fetch("/api/v1/comments?status=pending", { headers: authHeaders });
             const dataComments = await resComments.json();
 
             setPendingPosts(dataPosts.posts || []);
@@ -46,8 +48,7 @@ export default function AdminDashboard() {
         try {
             const res = await fetch(`/api/v1/posts/${id}/approve`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ admin_secret: secret })
+                headers: authHeaders,
             });
             if (res.ok) {
                 setPendingPosts(prev => prev.filter(p => p.id !== id));
@@ -63,8 +64,7 @@ export default function AdminDashboard() {
         try {
             const res = await fetch(`/api/v1/comments/${id}/approve`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ admin_secret: secret })
+                headers: authHeaders,
             });
             if (res.ok) {
                 setPendingComments(prev => prev.filter(c => c.id !== id));

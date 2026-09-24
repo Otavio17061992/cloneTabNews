@@ -1,17 +1,15 @@
 import CommentModel from "../../../../models/commentModel.js";
 import { rateLimit } from "../../../../Infra/rateLimiter.js";
+import { requireAdmin } from "../../../../Infra/auth.js";
 
 export default async function handler(req, res) {
     // GET /api/v1/comments?post_id=123
     if (req.method === "GET") {
-        const { post_id, status, admin_secret } = req.query;
+        const { post_id, status } = req.query;
 
         try {
             if (status === "pending") {
-                const SERVER_SECRET = process.env.ADMIN_SECRET || "12345";
-                if (admin_secret !== SERVER_SECRET) {
-                    return res.status(401).json({ error: "Unauthorized: Invalid admin secret" });
-                }
+                if (!requireAdmin(req, res)) return;
                 const pendingComments = await CommentModel.getAllPending();
                 return res.status(200).json({ comments: pendingComments });
             }

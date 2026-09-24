@@ -1,4 +1,5 @@
 import ProjectModel from "../../../../models/projectModel.js";
+import { requireAdmin } from "../../../../Infra/auth.js";
 
 export default async function handler(req, res) {
     if (req.method === "GET") {
@@ -13,6 +14,8 @@ export default async function handler(req, res) {
 
     // POST /api/v1/projects → cria um novo projeto
     if (req.method === "POST") {
+        if (!requireAdmin(req, res)) return;
+
         const { title, description, tech_stack, image_url, github_url, demo_url, featured } = req.body;
 
         // Validação (equivale ao ModelState.IsValid do .NET)
