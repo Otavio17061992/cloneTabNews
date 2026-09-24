@@ -1,1 +1,7 @@
 .next
+package-lock.json
+
+# Saídas de teste antigas (UTF-16, não são código)
+test-output.json
+test-output.txt
+jest_error.json
